@@ -1,0 +1,6 @@
+The number of routes: 3
+Travel demand: 10
+free_travel_time, capacity, alpha, beta
+10, 2, 0.15, 4
+20, 4, 0.15, 4
+25, 3, 0.15, 4
