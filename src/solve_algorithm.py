@@ -41,14 +41,14 @@ def data_reader():
 
 def capacity_restriction(routes: list):
     constant_n = 4
-    iteration_process=""
+    iteration_process = ""
     travel_time = [0] * Route.num_routes
     link_flow = [0] * Route.num_routes
     avg_travel_time = [0] * Route.num_routes
     avg_link_flow = [0] * Route.num_routes
 
     # Initialization. n=0
-    iteration_process+="counter = 0\n"
+    iteration_process += "counter = 0\n"
     for iRoute in range(0, Route.num_routes):
         travel_time[iRoute] = routes[iRoute].brp_func(0)
     iteration_process += "travel time: " + ", ".join(map(str, travel_time)) + "\n"
@@ -112,6 +112,7 @@ def incremental_assignment(routes: list):
 def solve_ue():
     routes = data_reader()
     capacity_restriction(routes)
+    incremental_assignment(routes)
 
 
 if __name__ == '__main__':
