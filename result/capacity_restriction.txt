@@ -8,15 +8,15 @@ travel time: 244.4, 20.0, 25.0
 link flow: 0, 10.0, 0
 
 counter = 2
-tempt tau: 10.0, 137.2, 25.0
+tempt tau: 10.0, 137.19, 25.0
 travel time: 185.8, 49.3, 25.0
 link flow: 0, 0, 10.0
 
 counter = 3
-tempt tau: 10.0, 20.0, 488.0
-travel time: 141.9, 42.0, 140.8
+tempt tau: 10.0, 20.0, 487.96
+travel time: 141.8, 42.0, 140.7
 link flow: 0, 10.0, 0
 
 average
 link flow: 0, 10.0, 0
-travel time: 141.9, 42.0, 140.8
+travel time: 141.8, 42.0, 140.7
