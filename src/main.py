@@ -1,30 +1,18 @@
-from pathlib import Path
-from route import Route
+import os
+from src.network import NetworkManager
 from solver import Solver
 
-
-def data_reader():
-    path = Path('../data/example1.txt')
-    contents = path.read_text()
-    lines = [line.strip() for line in contents.split('\n') if line.strip()]
-
-    num_routes = int(lines[0].split(': ')[1])
-    travel_demand = float(lines[1].split(': ')[1])
-    Route.init_attr(num_routes, travel_demand)
-
-    routes = []
-    for line in lines[3:]:
-        free_travel_time, capacity, alpha, beta = map(float, line.split(', '))
-        routes.append(Route(free_travel_time, capacity, alpha, beta))
-    return routes
-
-
 def solve_ue():
-    routes = data_reader()
-    Solver.capacity_restriction(routes)
-    Solver.incremental_assignment(routes)
-    Solver.convex_combination(routes)
+    data_dir = '..\\data'
+    network_file = 'test_Network.csv'
+    network_path = os.path.join(data_dir, network_file)
+    OD_file = 'test_OD.csv'
+    OD_path = os.path.join(data_dir, OD_file)
 
+    traffic_network = NetworkManager()
+    traffic_network.read_data(network_path, OD_path)
+    traffic_network=Solver.frank_wolf(traffic_network)
+    print(traffic_network.flow)
 
 if __name__ == '__main__':
     solve_ue()
